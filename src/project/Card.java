@@ -24,3 +24,18 @@ public class Card {
     suit=s;
     value=v;
     }
+
+    /**
+     * @return the suit
+     */
+    public Suit getSuit() {
+        return suit;
+    }
+
+    /**
+     * @return the value
+     */
+    public Value getValue() {
+        return value;
+    }
+}
