@@ -11,7 +11,7 @@ package project;
  * should remember to add themselves as a modifier.
  *
  * @author megha, 2019
- * version 0.6
+ * version 0.7
  */
 public class Card
 {
