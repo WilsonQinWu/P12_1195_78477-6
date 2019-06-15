@@ -12,16 +12,15 @@ package project;
  * @author megha, 2019
  * version 0.1
  */
-public abstract class Card 
-{
-    //default modifier for child classes
+public class Card {
+
+    public enum Suit{Hearts,Spades,Diamands,Clubs};
+    public enum Value{Ace,Two,Three,Four,Five,Six,Seven,Eight,Nine,Ten,Jack,Queen,King};
     
-    /**
-     * Students should implement this method for their specific children classes 
-     * @return a String representation of a card. Could be an UNO card, a regular playing card etc.
-     */
+    private final Suit suit;
+    private final Value value;
     
-    @Override
-    public abstract String toString();
-    
-}
+    Card(Suit s, Value v){
+    suit=s;
+    value=v;
+    }
