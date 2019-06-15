@@ -22,7 +22,7 @@ public class Card
    };
    public enum Value
    {
-      Ace, Two, Three, Four, Eight, Nine, Ten, Jack, Queen, King
+      Ace, Two, Three, Four, Five, Eight, Nine, Ten, Jack, Queen, King
    };
 
    private final Suit suit;
