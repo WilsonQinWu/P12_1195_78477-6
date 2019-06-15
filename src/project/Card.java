@@ -7,35 +7,46 @@ package project;
 
 /**
  * A class to be used as the base Card class for the project. Must be general
- * enough to be instantiated for any Card game. Students wishing to add to the code 
+ * enough to be instantiated for any Card game. Students wishing to add to the code
  * should remember to add themselves as a modifier.
+ *
  * @author megha, 2019
- * version 0.1
+ * version 0.3
  */
-public class Card {
+public class Card
+{
 
-    public enum Suit{Hearts,Spades,Diamands,Clubs};
-    public enum Value{Ace,Two,Three,Four,Five,Six,Seven,Eight,Nine,Ten,Jack,Queen,King};
-    
-    private final Suit suit;
-    private final Value value;
-    
-    Card(Suit s, Value v){
-    suit=s;
-    value=v;
-    }
+   public enum Suit
+   {
+      Hearts, Spades, Diamands, Clubs
+   };
+   public enum Value
+   {
+      Ace, Two, Three, Four, Five, Six, Seven, Eight, Nine, Ten, Jack, Queen, King
+   };
 
-    /**
-     * @return the suit
-     */
-    public Suit getSuit() {
-        return suit;
-    }
+   private final Suit suit;
+   private final Value value;
 
-    /**
-     * @return the value
-     */
-    public Value getValue() {
-        return value;
-    }
+   Card (Suit s, Value v)
+   {
+      suit = s;
+      value = v;
+   }
+
+   /**
+    * @return the suit
+    */
+   public Suit getSuit ()
+   {
+      return suit;
+   }
+
+   /**
+    * @return the value
+    */
+   public Value getValue ()
+   {
+      return value;
+   }
 }
