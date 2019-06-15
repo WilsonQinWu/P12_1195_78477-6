@@ -11,7 +11,7 @@ package project;
  * should remember to add themselves as a modifier.
  *
  * @author megha, 2019
- * version 0.7
+ * version 0.8
  */
 public class Card
 {
@@ -22,7 +22,7 @@ public class Card
    };
    public enum Value
    {
-      Ace, Two, Three, Four, Five, Eight, Nine, Ten, Jack, Queen, King
+      Ace, Two, Three, Four, Five, Six, Eight, Nine, Ten, Jack, Queen, King
    };
 
    private final Suit suit;
