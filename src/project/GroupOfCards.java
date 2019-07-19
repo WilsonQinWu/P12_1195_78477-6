@@ -16,42 +16,19 @@ import java.util.Collections;
  */
 public class GroupOfCards 
 {
-   
-    //The group of cards, stored in an ArrayList
-    private ArrayList <Card> cards;
-    private int size;//the size of the grouping
-    
-    public GroupOfCards(int givenSize)
-    {
-        size = givenSize;
-    }
-    
-    /**
-     * A method that will get the group of cards as an ArrayList
-     * @return the group of cards.
-     */
-    public ArrayList<Card> showCards()
-    {
-        return cards;
-    }
-    
-    public void shuffle()
-    {
-        Collections.shuffle(cards);
-    }
+   private int handSize = 52;
+    public Card[] cards = new Card[handSize];
 
-    /**
-     * @return the size of the group of cards
-     */
-    public int getSize() {
-        return size;
-    }
+    //generate hand of 52 cards
+    public void generateHand() {
 
-    /**
-     * @param givenSize the max size for the group of cards
-     */
-    public void setSize(int givenSize) {
-        size = givenSize;
+        int countCards = 0;
+        for (Card.Suit s : Card.Suit.values()) {
+            for (Card.Value v : Card.Value.values()) {
+                cards[countCards] = (new Card(s, v));
+                countCards++;
+            }
+        }
     }
-    
-}//end class
+}
+
