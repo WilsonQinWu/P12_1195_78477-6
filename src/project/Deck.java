@@ -23,12 +23,12 @@ public class Deck {
     }
 
     /*
- * Shuffles the deck by changing the indexes of 200 random pairs of cards in the deck.
+     * Random
      */
     public void shuffle() {
         Random random = new Random();
         Card temp;
-        for (int i = 0; i < 200; i++) {
+        for (int i = 0; i < 54; i++) {
             int index1 = random.nextInt(deck.size() - 1);
             int index2 = random.nextInt(deck.size() - 1);
             temp = deck.get(index2);

@@ -11,8 +11,6 @@ import java.util.Scanner;
  */
 public class BlackJack {
 
-    private static int AceCounter;//how many aces are in the user's hand
-    private static ArrayList<Card> hand;//represents the user's hand
     private static int handvalue;//the value of the user's hand
     private static String name;//name of the user
 
@@ -20,11 +18,10 @@ public class BlackJack {
         System.out.println("Hi! What is your name?");
         Scanner scan = new Scanner(System.in);
         name = scan.nextLine();
-        System.out.println("Hello, " + name + ", lets play some BlackJack!");
+        System.out.println("Hello, " + name);
         while (name != null) {
-            Deck deck = new Deck();//initialize deck, dealer, hands, and set the bet.
+            Deck deck = new Deck();//Build a new deck
             deck.shuffle();
-            AceCounter = 0;
             Dealer dealer = new Dealer(deck);
             List<Card> hand = new ArrayList<>();
             hand.add(deck.drawCard());
@@ -42,7 +39,7 @@ public class BlackJack {
                 System.out.println("Please enter 'hit' or 'stand'.");
                 hitter = hitorstand.nextLine();
             }
-            while (hitter.equals("hit"))//hits the user as many times as he or she pleases.
+            while (hitter.equals("hit"))
             {
                 Hit(deck, hand);
                 System.out.println("Your hand is now:");
@@ -56,7 +53,7 @@ public class BlackJack {
                 System.out.println("Would you like to hit or stand?");
                 hitter = hitorstand.nextLine();
             }
-            if (hitter.equals("stand"))//lets the user stand.
+            if (hitter.equals("stand"))
             {
                 int dealerhand = dealer.takeTurn(deck);//takes the turn for the dealer.
                 System.out.println("");
@@ -68,7 +65,7 @@ public class BlackJack {
                     Win();
                 } else {
                     System.out.println("Your Score is " + handvalue + ", Dealer Score is " + dealerhand);
-                    int you = 21 - handvalue;//check who is closer to 21 and determine winner
+                    int you = 21 - handvalue;//Declare winner
                     int deal = 21 - dealerhand;
                     if (you == deal) {
                         System.out.println("Your Score is " + handvalue + ", Dealer Score is " + dealerhand);
@@ -85,10 +82,10 @@ public class BlackJack {
                 }
             }
 
-            System.out.println("Would you like to play again?");//ask if the user wants to keep going
+            System.out.println("Would you like to play again?");//Play again
             Scanner yesorno = new Scanner(System.in);
             String answer = yesorno.nextLine();
-            while (!isyesorno(answer)) {
+            while (!isYesOrNo(answer)) {
                 System.out.println("Please answer yes or no.");
                 answer = yesorno.nextLine();
             }
@@ -98,7 +95,7 @@ public class BlackJack {
         }
     }
     /*
- * Calculates the value of a player's hand.
+ * Calculates the value
      */
     public static int calcHandValue(List<Card> hand) {
         Card[] aHand = new Card[]{};
@@ -106,13 +103,6 @@ public class BlackJack {
         int handvalue = 0;
         for (int i = 0; i < aHand.length; i++) {
             handvalue += aHand[i].getValue();
-            if (aHand[i].getValue() == 11) {
-                AceCounter++;
-            }
-            while (AceCounter > 0 && handvalue > 21) {
-                handvalue -= 10;
-                AceCounter--;
-            }
         }
         return handvalue;
     }
@@ -141,13 +131,6 @@ public class BlackJack {
         handvalue = 0;
         for (int i = 0; i < aHand.length; i++) {
             handvalue += aHand[i].getValue();
-            if (aHand[i].getValue() == 11) {
-                AceCounter++;
-            }
-            while (AceCounter > 0 && handvalue > 21) {
-                handvalue -= 10;
-                AceCounter--;
-            }
         }
     }
 
@@ -175,7 +158,7 @@ public class BlackJack {
     /*
  * Determines if a user has input yes or no.
      */
-    public static boolean isyesorno(String answer) {
+    public static boolean isYesOrNo(String answer) {
         if (answer.equals("yes") || answer.equals("no")) {
             return true;
         }

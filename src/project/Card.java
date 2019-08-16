@@ -7,15 +7,14 @@ package project;
  */
 public class Card {
 
-    private int rank;//represents the rank of a card
-    private int suit;//represents the suit of a card
-    private int value;//represents the value of a card
+    private int rank;
+    private int suit;
+    private int value;
     private static String[] ranks = {"Ace", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Jack", "Queen", "King"};
     private static String[] suits = {"Clubs", "Diamonds", "Hearts", "Spades"};
 
     /*
- * Created with an integer that represents a spot in the String array ranks and the String array suits. This represents
- * the rank and suit of an individual card.
+ * Created with an integer that represents a spot in the String array ranks and the String array suits. 
      */
     Card(int suit, int values) {
         this.rank = values;

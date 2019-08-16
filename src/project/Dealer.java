@@ -12,7 +12,6 @@ public class Dealer {
     ArrayList<Card> hand;//represents the dealer's hand
     private int handvalue = 0;//value of the dealer's hand (starts at 0)
     private Card[] aHand;//used to convert the dealer's hand to an array
-    private int AceCounter;//counts the aces in the dealer's hand
 
     Dealer(Deck deck) {
         hand = new ArrayList<>();
@@ -52,13 +51,6 @@ public class Dealer {
         handvalue = 0;
         for (int i = 0; i < aHand.length; i++) {
             handvalue += aHand[i].getValue();
-            if (aHand[i].getValue() == 11) {
-                AceCounter++;
-            }
-            while (AceCounter > 0 && handvalue > 21) {
-                handvalue -= 10;
-                AceCounter--;
-            }
         }
     }
 
