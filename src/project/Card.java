@@ -1,55 +1,64 @@
-/**
- * SYST 17796 Project Summer 2019 Base code.
- * Students can modify and extend to implement their game.
- * Add your name as a modifier and the date!
- */
 package project;
 
+
 /**
- * A class to be used as the base Card class for the project. Must be general
- * enough to be instantiated for any Card game. Students wishing to add to the
- * code should remember to add themselves as a modifier.
  *
- * @author megha, 2019
+ * @author acer
  */
 public class Card {
 
-    public enum Suit {
-        Hearts, Spades, Diamands, Clubs
-    };
+    private int rank;//represents the rank of a card
+    private int suit;//represents the suit of a card
+    private int value;//represents the value of a card
+    private static String[] ranks = {"Ace", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Jack", "Queen", "King"};
+    private static String[] suits = {"Clubs", "Diamonds", "Hearts", "Spades"};
 
-    public enum Value {
-        Ace(1), Two(2), Three(3), Four(4), Five(5), Six(6), Seven(7), Eight(8), Nine(9), Ten(10), Jack(11), Queen(12), King(13);
-        private int value;
-
-        public int getValue() {
-            return value;
-        }
-
-        private Value(int value) {
-            this.value = value;
-        }
-    }
-
-    private final Suit suit;
-    private final Value value;
-
-    Card(Suit s, Value v) {
-        suit = s;
-        value = v;
-    }
-
-    /**
-     * @return the suit
+    /*
+ * Created with an integer that represents a spot in the String array ranks and the String array suits. This represents
+ * the rank and suit of an individual card.
      */
-    public Suit getSuit() {
+    Card(int suit, int values) {
+        this.rank = values;
+        this.suit = suit;
+    }
+
+    /*
+ * Returns the string version of a card.
+     */
+    public String toString() {
+        return ranks[rank] + " of " + suits[suit];
+    }
+
+    /*
+ * Returns the rank of a card.
+     */
+    public int getRank() {
+        return rank;
+    }
+
+    /*
+ * Returns the suit of a card.
+     */
+    public int getSuit() {
         return suit;
     }
 
-    /**
-     * @return the value
+    /*
+ * Returns the value of a card. If a jack, queen, or king the value is ten. Aces are 11 for now.
      */
-    public Value getValue() {
+    public int getValue() {
+        if (rank > 10) {
+            value = 10;
+        }  else {
+            value = rank;
+        }
         return value;
+    }
+
+    /*
+ * Sets the value of a card.
+     */
+    public void setValue(int set) {
+        value = set;
     }
 }
